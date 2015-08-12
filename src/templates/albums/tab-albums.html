@@ -1,0 +1,38 @@
+<ion-view view-title="Albums">
+  <ion-content>
+
+    <ion-list>
+
+      <!-- Albums List -->
+      <ion-item ng-repeat="album in myAlbums"
+          on-hold="albumActions({{album}})"
+          class="item-stable item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-href="#/tab/albums/{{album._id}}">
+
+        <img ng-src="{{album.cover}}">
+        <h2>{{album.title}}</h2>
+        <p>{{album.users.length}} miembros, {{album.pictures.length}} fotos.</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <!-- Example of option button
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+        -->
+      </ion-item>
+
+
+      <!-- New Album -->
+      <ion-item ng-href="#/tab/albums/new"
+          class="item-calm item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+
+        <img ng-src="">
+        <h2>Nuevo Albúm ;3</h2>
+        <p>empieza a compartir!</p>
+
+      </ion-item>
+
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

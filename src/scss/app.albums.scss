@@ -1,0 +1,19 @@
+
+//New Album
+
+
+//Carousel
+//FIXME: relative sizes
+ul[rn-carousel] {
+    width:400px;
+    height:400px;
+    margin: 0 auto;
+}
+
+.bgimage {
+    text-align:right;
+    color:white;
+    background-size:cover;
+    height:200px;
+    background-position: center center;
+}

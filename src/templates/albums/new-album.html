@@ -1,0 +1,84 @@
+<ion-view view-title="Nuevo Albúm">
+  <ion-content class="padding">
+
+    <!-- Step 1 -->
+    <div class="list card" ng-show="stepSelected===1">
+      <div class="item item-body">
+
+        <div class="row">
+          <p>
+            Vamos ya casí terminas, Escoge un nombre divertido (3ö)3
+          </p>
+        </div>
+
+        <div class="row">
+          <label class="item item-input">
+            <input type="text" ng-model="form.title" ng-trim="true" placeholder="ej. jardin botánico 2015" />
+          </label>
+        </div>
+
+        <div class="row">
+          <button ng-click="goStep2()"
+            class="button button-block button-balanced">
+            Continuar
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Step 2 -->
+    <div class="list card" ng-show="stepSelected===2">
+      <div class="item item-body">
+
+        <div class="row">
+          <p>
+            Y una contraseña para que sólo tú y los miembros del albúm puedan acceder.
+            (Recuerda escoger una que puedas compartir :$)
+          </p>
+        </div>
+
+        <div class="row">
+          <label class="item item-input">
+            <input type="text" ng-model="form.passwd" ng-trim="true" placeholder="losprecisos" />
+          </label>
+        </div>
+
+        <div class="row">
+          <button ng-click="goStep3()"
+            class="button button-block button-balanced">
+            Y Listo!
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Step 3 -->
+    <div class="list card" ng-show="stepSelected===3">
+      <div class="item item-body">
+
+        <div class="row">
+          <h2>
+            Ya está listo! No nos crees?
+          </h2>
+          <p>
+            El ID super secreto de tu Albúm es {{newAlbum.publicId}}.
+            Compartelo con quien quieras (Tb deberás compartir la contraseña).
+          </p>
+        </div>
+
+        <div class="row">
+          <button ng-click="$ionicGoBack()"
+            class="button button-block button-balanced">
+            Comienza a subir fotos :d
+          </button> <!-- TODO: CorrectLink : ng-href="#/tab/albums/{{newAlbum.id}}"-->
+        </div>
+
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-view view-title="Registrate">
+  <ion-content>
+
+    <form name="formSignUp">
+
+      <div class="row">
+        <input type="email"
+            ng-model="form.email"
+            ng-trim="true"
+            required
+            placeholder="Escribe tu email" />
+      </div>
+
+      <div class="row">
+        <input type="text"
+            ng-model="form.nick"
+            ng-trim="true"
+            placeholder="Cómo te dicen tus amigos" />
+      </div>
+
+      <div class="row">
+        <input type="password"
+            ng-model="form.passwd"
+            ng-trim="true"
+            required
+            min-length="6"
+            placeholder="Y tu contraseña hyper secreta" />
+      </div>
+
+      <!--Would be really neccesary write passwd again? -->
+
+
+      <div class="row">
+        <button ng-click="signUp(formSignUp)"
+          class="button button-block button-balanced">
+          Listo
+        </button>
+      </div>
+
+    </form>
+
+  </ion-content>
+</ion-view>

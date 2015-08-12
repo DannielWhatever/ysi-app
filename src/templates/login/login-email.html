@@ -1,0 +1,32 @@
+<ion-view view-title="Inicia Sesión">
+  <ion-content>
+
+    <form name="formLogin">
+
+      <div class="row">
+        <input type="email"
+            ng-model="form.email"
+            ng-trim="true"
+            required
+            placeholder="email" />
+      </div>
+
+      <div class="row">
+        <input type="password"
+            ng-model="form.passwd"
+            ng-trim="true"
+            required
+            placeholder="contraseña" />
+      </div>
+
+      <div class="row">
+        <button ng-click="login(formLogin)"
+          class="button button-block button-balanced">
+          Listo
+        </button>
+      </div>
+
+    </form>
+
+  </ion-content>
+</ion-view>
