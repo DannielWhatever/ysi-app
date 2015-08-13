@@ -1,9 +1,28 @@
 
 export default angular
 .module('starter')
-.config( ($stateProvider, $urlRouterProvider, $facebookProvider, ASSETS_PATH, FB_APP_ID) => {
+.config( ($stateProvider, $urlRouterProvider, $httpProvider, $facebookProvider, SERVER_REST, ASSETS_PATH, FB_APP_ID) => {
 
   $facebookProvider.setAppId(FB_APP_ID);
+
+
+  $httpProvider.interceptors.push(($rootScope) => {
+    return {
+      request: req => {
+        //$rootScope.$broadcast('loading:show');
+        if(req.url && req.url.indexOf(SERVER_REST)===0){
+          console.log('request intercepted');
+          req.headers['auth-x'] = '1';
+        }
+        return req;
+      },
+      response: res => {
+        //$rootScope.$broadcast('loading:hide');
+        //console.log(res);
+        return res;
+      }
+    };
+  });
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

@@ -8,7 +8,7 @@
         rn-carousel-buffered=""
         class="carousel3 ng-scope">
 
-            <li ng-repeat="pic in album.pictures|carouselSlice:carouselBufferIndex:carouselBufferSize track by pic.id"
+            <li ng-repeat="pic in album.pictures|carouselSlice:carouselBufferIndex:carouselBufferSize track by $index"
                 class="ng-scope" >
 
                 <div class="bgimage ng-binding" ng-style="{'background-image': 'url(' + pic.resource + ')'}">

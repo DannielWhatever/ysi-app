@@ -85,13 +85,7 @@ export default angular
       */
     get: (albumId) => {
       //TODO:  validate user in service
-      return $http({
-        method: 'GET',
-        url: SERVER_REST+'/albums/'+albumId,
-        headers: {
-          'User': undefined
-        }
-      });
+      return $http.get(SERVER_REST+'/albums/'+albumId);
     },
 
      /**
