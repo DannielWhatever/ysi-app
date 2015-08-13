@@ -18,21 +18,26 @@ export default angular
    */
   $scope.goStep2 = () => {
     //validate name, maybe?
-    if($scope.form.title===''){
-      return ;
-    }
+    if($scope.form.title===''){ return ; }
     //continue
     goStep(2);
   };
 
   $scope.goStep3 = () => {
     //validate passwd, maybe?
-    if($scope.form.passwd===''){
-      return ;
-    }
-    //continue
-    $scope.newAlbum = AlbumsServ.create($scope.form);
-    goStep(3);
+    if($scope.form.passwd===''){ return ; }
+
+    //create and continue
+    AlbumsServ.create($scope.form)
+    .success(function(data){
+      console.log(data);
+      $scope.newAlbum = data;
+      goStep(3);
+    })
+    .error(function(){
+      console.error('Error retrieving data');
+      return null;
+    });
   };
 
 

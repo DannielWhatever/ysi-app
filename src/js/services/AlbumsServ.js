@@ -72,7 +72,6 @@ export default angular
       * @returns object - all the albums from service
       */
     getAll: () => {
-      //pass header with user to get
       return $http.get(SERVER_REST+'/albums/');
     },
 
@@ -84,7 +83,6 @@ export default angular
       * @returns object - the album
       */
     get: (albumId) => {
-      //TODO:  validate user in service
       return $http.get(SERVER_REST+'/albums/'+albumId);
     },
 
@@ -102,24 +100,8 @@ export default angular
         title,
         passwd: $crypt.encode(passwd)
       };
-      //TODO take this object and send to the api, then create,
-      //fr create , first add permission 'admin' to users[0],
-      //add created and modified dates,
-      //next, add example picture and cover
-      $http.post(SERVER_REST+'/albums/',object)
-      .success(function(data){
-        console.log(data);
-        return data;
-      })
-      .error(function(){
-        console.error('Error retrieving data');
-        return null;
-      });
 
-      //TODO: take user credentials from session
-      //let newAlbum = _newAlbumMock(title,passwd); //call service
-      //_albums.push(newAlbum);
-      //return newAlbum;
+      return $http.post(SERVER_REST+'/albums/',object);
     },
 
     /**

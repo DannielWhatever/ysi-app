@@ -25,6 +25,7 @@ export default angular
      * @returns object - the new user profile
      */
     signUp: ({email,passwd,nick}) => {
+      //TODO: Do this method. NOW
       nick= nick || (email.split('@'))[0];
       let newUser = {
         id: 11, //correlativo
