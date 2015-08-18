@@ -25,19 +25,13 @@ angular
      * @returns object - the new user profile
      */
     signUp: ({email,passwd,nick}) => {
-      //TODO: Do this method. NOW
-      nick= nick || (email.split('@'))[0];
-      let newUser = {
-        id: 11, //correlativo
-        facebookId:null,
-        email: email,
-        passwd: btoa(passwd), //
-        nick: nick,
-        avatar: '' //default avatar
+      //TODO: Add $crypt. NOW
+      let object = {
+        email,
+        passwd: $crypt.encode(passwd),
+        nick
       };
-      let header = 'Basic '+btoa(email+':'+passwd);
-      console.log(header);
-      return newUser;
+      return $http.post(SERVER_REST+'/users/',object);
     },
 
 

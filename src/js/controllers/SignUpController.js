@@ -16,9 +16,18 @@ angular
   this.signUp = (form) => {
     console.log('Valid form: '+form.$valid);
     if(form.$valid){
-      let user = UsersServ.signUp(this.form);
-      $local.set('user',user); //keep in $local
-      $state.go('tab.albums');
+      UsersServ.signUp(this.form)
+      .success(data=>{
+        console.log(data);
+        if(data){
+          $local.set('user',data.user);
+          $local.set('token',data.token);
+          $state.go('tab.albums');
+        }
+      })
+      .error(()=>{
+        console.error('Error in signup');
+      });
     }
   };
 

@@ -1,6 +1,8 @@
 /**
  * Angular App declaration & dependencies
  */
+
+
 require('ng-facebook');
 require('angular-carousel/dist/angular-carousel.js');
 require('angular-touch');

@@ -16,6 +16,7 @@ angular
           if(token){
               req.headers.authorization = 'Bearer '+token;
           }
+          console.log(req);
         }
         return req;
       },

@@ -52,7 +52,7 @@ angular
   /*
    * Functions
    */
-  this.getAllAlbums = ()=>{
+  this.getAllAlbums = () => {
 
     AlbumsServ.getAll()
     .success(data=>{

@@ -18,7 +18,7 @@ angular
       .success(data=>{
         console.log(data);
         if(data){
-          $local.set('user',data.user); //keep in $local
+          $local.set('user',data.user);
           $local.set('token',data.token);
           $state.go('tab.albums');
         }else{

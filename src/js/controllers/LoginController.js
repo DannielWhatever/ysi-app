@@ -1,6 +1,8 @@
+const _ = require('lodash');
+
 angular
 .module('starter.controllers')
-.controller('LoginController', function($rootScope, $state, $local, _, UsersServ, FacebookServ, FB_CONNECTED){
+.controller('LoginController', function($rootScope, $state, $local, UsersServ, FacebookServ, FB_CONNECTED){
 
   console.log('In login controller');
 

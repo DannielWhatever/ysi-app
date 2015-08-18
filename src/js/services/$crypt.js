@@ -1,3 +1,5 @@
+const SHA256 = require('crypto-js/sha256');
+
 
 angular
 .module('starter.services')
@@ -12,9 +14,8 @@ angular
      * @returns string - the encripted passwd
      */
     encode: (passwd) => {
-      return btoa(passwd); //im kidding u, this 'll change
+      return SHA256(passwd).toString();
     },
-
   };
 
 });
