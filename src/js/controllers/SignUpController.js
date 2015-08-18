@@ -1,11 +1,11 @@
 
-export default angular
+angular
 .module('starter.controllers')
-.controller('SignUpCtrl', ($scope, $state, $local, UsersServ) => {
+.controller('SignUpController', function($state, $local, UsersServ){
 
-  console.log('In SignUpCtrl controller');
+  console.log('In SignUpController controller');
 
-  $scope.form = {
+  this.form = {
     email: '',
     passwd: '',
     nick: ''
@@ -13,10 +13,10 @@ export default angular
   };
 
 
-  $scope.signUp = (form) => {
+  this.signUp = (form) => {
     console.log('Valid form: '+form.$valid);
     if(form.$valid){
-      let user = UsersServ.signUp($scope.form);
+      let user = UsersServ.signUp(this.form);
       $local.set('user',user); //keep in $local
       $state.go('tab.albums');
     }

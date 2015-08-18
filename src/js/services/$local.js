@@ -1,7 +1,7 @@
 
-export default angular
+angular
 .module('starter.services')
-.factory('$local', ($window) => {
+.factory('$local', function($window){
 
   return {
 
@@ -13,7 +13,13 @@ export default angular
 
     get: (key) => {
       return JSON.parse($window.localStorage[key] || '{}');
+    },
+
+    delete: (key) => {
+      $window.localStorage.removeItem(key);
     }
+
+
   };
 
 });

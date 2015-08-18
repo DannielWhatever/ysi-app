@@ -1,7 +1,7 @@
 
-export default angular
+angular
 .module('starter.services')
-.factory('$crypt', ($window) => {
+.factory('$crypt', function($window){
 
   return {
 

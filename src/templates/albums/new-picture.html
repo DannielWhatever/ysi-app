@@ -1,7 +1,7 @@
 <ion-view view-title="Nuevo Foto">
   <ion-content class="padding">
 
-    <img ng-show="imgTemp !== undefined" ng-src="{{imgTemp}}" />
+    <img ng-show="vm.imgTemp !== undefined" ng-src="{{vm.imgTemp}}" />
 
     <div class="list card">
       <div class="item item-body">
@@ -14,12 +14,12 @@
 
         <div class="row">
           <label class="item item-input">
-            <input type="text" ng-model="form.title" ng-trim="true" placeholder="ej. #casual #hipstercats" />
+            <input type="text" ng-model="vm.form.title" ng-trim="true" placeholder="ej. #casual #hipstercat" />
           </label>
         </div>
 
         <div class="row">
-          <button ng-click="save()"
+          <button ng-click="vm.save()"
             class="button button-block button-balanced">
             Guardar
           </button>

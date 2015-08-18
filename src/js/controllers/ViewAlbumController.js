@@ -5,29 +5,29 @@
  */
 
 
-export default angular
+angular
 .module('starter.controllers')
-.controller('ViewAlbumCtrl', ($scope, $state, $stateParams, $local, $cordovaCamera, $cordovaImagePicker, AlbumsServ) => {
+.controller('ViewAlbumController', function($scope, $state, $stateParams, $local, $cordovaCamera, $cordovaImagePicker, AlbumsServ){
 
   console.log('In view album controller');
 
-  $scope.$on('$ionicView.beforeEnter', function(){
+  $scope.$on('$ionicView.beforeEnter', ()=>{
 
     console.log('album id', $stateParams.albumId);
 
     AlbumsServ.get($stateParams.albumId)
-    .success(function(data){
+    .success(data =>{
       console.log(data);
-      $scope.album = data;
+      this.album = data;
     })
-    .error(function(){
+    .error(()=>{
       console.error('Error retrieving data');
     });
 
   });
 
 
-  $scope.takePicture = () => {
+  this.takePicture = () => {
     const options = {
         quality : 75,
         destinationType : Camera.DestinationType.DATA_URL,
@@ -42,8 +42,8 @@ export default angular
 
     $cordovaCamera.getPicture(options)
     .then((imageData) => {
-        $scope.imgURI = "data:image/jpeg;base64," + imageData;
-        $local.set('tempCamera',$scope.imgURI);
+        this.imgURI = "data:image/jpeg;base64," + imageData;
+        $local.set('tempCamera',this.imgURI);
         console.log(imageData);
         $state.go('tab.newPicture');
     }, (err) => {

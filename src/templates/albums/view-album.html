@@ -1,4 +1,4 @@
-<ion-view view-title="{{album.title}}">
+<ion-view view-title="{{vm.album.title}}">
   <ion-content class="padding">
 
     <!-- IDEA: change angular-carousel por slide de Ionic -->
@@ -8,7 +8,7 @@
         rn-carousel-buffered=""
         class="carousel3 ng-scope">
 
-            <li ng-repeat="pic in album.pictures|carouselSlice:carouselBufferIndex:carouselBufferSize track by $index"
+            <li ng-repeat="pic in vm.album.pictures|carouselSlice:carouselBufferIndex:carouselBufferSize track by $index"
                 class="ng-scope" >
 
                 <div class="bgimage ng-binding" ng-style="{'background-image': 'url(' + pic.resource + ')'}">
@@ -21,21 +21,21 @@
     </ul>
 
     <div class="row">
-      <button ng-click="getPictures()"
+      <button ng-click="vm.getPictures()"
         class="button button-block button-balanced">
         Sube contenido
       </button>
     </div>
 
     <div class="row">
-      <button ng-click="takePicture()"
+      <button ng-click="vm.takePicture()"
         class="button button-block button-balanced">
         Toma una foto
       </button>
     </div>
 
     <!-- XXX: JUST4DEV  preview of picture -->
-    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" />
+    <img ng-show="vm.imgURI !== undefined" ng-src="{{vm.imgURI}}" />
 
   </ion-content>
 </ion-view>

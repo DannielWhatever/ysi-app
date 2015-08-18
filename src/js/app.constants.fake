@@ -1,15 +1,15 @@
 
-export default angular
+angular
 .module('starter')
 
 .constant('ASSETS_PATH','assets')
 
 .constant('FB_CONNECTED','connected')
 
-.constant('FB_APP_ID','??????')
+.constant('FB_APP_ID','????????')
 
 
-.constant('SERVER_REST','http://localhost:9000')
+.constant('SERVER_REST','http://localhost:9000/api/v1')
 
 
 

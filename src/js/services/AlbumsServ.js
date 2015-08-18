@@ -1,7 +1,7 @@
 
-export default angular
+angular
 .module('starter.services')
-.factory('AlbumsServ', ($crypt, $local, $http, SERVER_REST) => {
+.factory('AlbumsServ', function($crypt, $local, $http, SERVER_REST){
 
   let _albums = [{
     id: 10, //internal id

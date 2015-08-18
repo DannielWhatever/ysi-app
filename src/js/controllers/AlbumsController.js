@@ -1,7 +1,7 @@
 
-export default angular
+angular
 .module('starter.controllers')
-.controller('AlbumsCtrl', ($scope, $ionicActionSheet, $local, AlbumsServ) => {
+.controller('AlbumsController', function($scope, $ionicActionSheet, $local, AlbumsServ){
 
   console.log('In albums controller');
 
@@ -9,19 +9,19 @@ export default angular
   /*
    * OnBeforeEnter
    */
-  $scope.$on('$ionicView.beforeEnter', function(){
+  $scope.$on('$ionicView.beforeEnter', ()=>{
 
-    $scope.user = $local.get('user');
-    console.log('current user', $scope.user);
+    this.user = $local.get('user');
+    console.log('current user', this.user);
 
-    getAllAlbums();
+    this.getAllAlbums();
   });
 
 
   /*
    * Public Functions
    */
-  $scope.albumActions = (album) => {
+  this.albumActions = (album) => {
       // Show the action sheet
       $ionicActionSheet.show({
           buttons: [
@@ -36,11 +36,11 @@ export default angular
           },
           destructiveButtonClicked: () => {
             AlbumsServ.delete(album._id)
-            .success(function(data){
+            .success(data=>{
               console.log(data);
-              getAllAlbums();
+              this.getAllAlbums();
             })
-            .error(function(){
+            .error(()=>{
               console.error('Error deleting data');
             });
             return true;
@@ -52,17 +52,17 @@ export default angular
   /*
    * Functions
    */
-  function getAllAlbums(){
+  this.getAllAlbums = ()=>{
 
     AlbumsServ.getAll()
-    .success(function(data){
+    .success(data=>{
       console.log(data);
-      $scope.myAlbums = data;
+      this.myAlbums = data;
     })
-    .error(function(){
+    .error(()=>{
       console.error('Error retrieving data');
     });
 
-  }
+  };
 
 });

@@ -1,7 +1,7 @@
 
-export default angular
+angular
 .module('starter')
-.run( ($ionicPlatform, $rootScope, FB_APP_ID) => {
+.run( function($ionicPlatform, $rootScope, FB_APP_ID){
 
   $ionicPlatform.ready( () => {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

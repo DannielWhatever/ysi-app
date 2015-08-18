@@ -17,6 +17,7 @@ var htmlmin = require('gulp-htmlmin');
 var ngAnnotate = require('gulp-ng-annotate');
 var replace = require('gulp-replace');
 var del = require('del');
+var KarmaServer = require('karma').Server;
 
 /** params **/
 var PUBLIC_PATH = './www';
@@ -108,4 +109,13 @@ gulp.task('clean', function(){
     ASSETS_PATH+'/**/*', //all in assets folder
     //'!dist/mobile/deploy.json' negate pattern for not delete
   ]);
+});
+
+
+//test
+gulp.task('test', function (done) {
+  new KarmaServer({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });

@@ -1,7 +1,7 @@
 
-export default angular
+angular
 .module('starter.services')
-.factory('UsersServ', () => {
+.factory('UsersServ', function($crypt, $http, SERVER_REST){
 
   let _users = [{
     id: 10, //internal id
@@ -49,14 +49,11 @@ export default angular
      */
     loginEmail: ({email,passwd}) => {
       //Validate login
-      //return null;
-      return {
-        id: 11, //correlativo
-        facebookId:null,
-        email: email,
-        nick: 'cameron',
-        avatar: '' //default avatar
+      let object = {
+        email,
+        passwd: $crypt.encode(passwd)
       };
+      return $http.post(SERVER_REST+'/users/login',object);
     },
 
 

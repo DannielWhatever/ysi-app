@@ -2,7 +2,7 @@
   <ion-content class="padding">
 
     <!-- Step 1 -->
-    <div class="list card" ng-show="stepSelected===1">
+    <div class="list card" ng-show="vm.stepSelected===1">
       <div class="item item-body">
 
         <div class="row">
@@ -13,12 +13,12 @@
 
         <div class="row">
           <label class="item item-input">
-            <input type="text" ng-model="form.title" ng-trim="true" placeholder="ej. jardin botánico 2015" />
+            <input type="text" ng-model="vm.form.title" ng-trim="true" placeholder="ej. jardin botánico 2015" />
           </label>
         </div>
 
         <div class="row">
-          <button ng-click="goStep2()"
+          <button ng-click="vm.goStep2()"
             class="button button-block button-balanced">
             Continuar
           </button>
@@ -29,7 +29,7 @@
 
 
     <!-- Step 2 -->
-    <div class="list card" ng-show="stepSelected===2">
+    <div class="list card" ng-show="vm.stepSelected===2">
       <div class="item item-body">
 
         <div class="row">
@@ -41,12 +41,12 @@
 
         <div class="row">
           <label class="item item-input">
-            <input type="text" ng-model="form.passwd" ng-trim="true" placeholder="losprecisos" />
+            <input type="text" ng-model="vm.form.passwd" ng-trim="true" placeholder="losprecisos" />
           </label>
         </div>
 
         <div class="row">
-          <button ng-click="goStep3()"
+          <button ng-click="vm.goStep3()"
             class="button button-block button-balanced">
             Y Listo!
           </button>
@@ -57,7 +57,7 @@
 
 
     <!-- Step 3 -->
-    <div class="list card" ng-show="stepSelected===3">
+    <div class="list card" ng-show="vm.stepSelected===3">
       <div class="item item-body">
 
         <div class="row">
@@ -65,7 +65,7 @@
             Ya está listo! No nos crees?
           </h2>
           <p>
-            El ID super secreto de tu Albúm es {{newAlbum.publicId}}.
+            El ID super secreto de tu Albúm es {{vm.newAlbum.publicId}}.
             Compartelo con quien quieras (Tb deberás compartir la contraseña).
           </p>
         </div>

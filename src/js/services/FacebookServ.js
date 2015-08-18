@@ -4,9 +4,9 @@ Api explorer: Example with albums
 https://developers.facebook.com/tools/explorer/958581374204753/?method=GET&path=me%3Ffields%3Dphotos%7Balbum%7D
 
 **/
-export default angular
+angular
 .module('starter.services')
-.factory('FacebookServ', ($rootScope, $facebook) => {
+.factory('FacebookServ', function($rootScope, $facebook){
 
   let _self = this;
 

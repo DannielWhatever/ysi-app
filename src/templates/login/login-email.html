@@ -5,7 +5,7 @@
 
       <div class="row">
         <input type="email"
-            ng-model="form.email"
+            ng-model="vm.form.email"
             ng-trim="true"
             required
             placeholder="email" />
@@ -13,14 +13,14 @@
 
       <div class="row">
         <input type="password"
-            ng-model="form.passwd"
+            ng-model="vm.form.passwd"
             ng-trim="true"
             required
             placeholder="contraseña" />
       </div>
 
       <div class="row">
-        <button ng-click="login(formLogin)"
+        <button ng-click="vm.login(formLogin)"
           class="button button-block button-balanced">
           Listo
         </button>

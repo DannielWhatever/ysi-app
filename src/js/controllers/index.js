@@ -1,19 +1,16 @@
 
-const appControllers = angular.module('starter.controllers', []);
+angular.module('starter.controllers', []);
 
 //Auth
-require('./LoginCtrl.js');
-require('./LoginEmailCtrl.js');
-require('./SignUpCtrl.js');
+require('./LoginController.js');
+require('./LoginEmailController.js');
+require('./SignUpController.js');
 
 //Albums
-require('./AlbumsCtrl.js');
-require('./NewAlbumCtrl.js');
-require('./NewPictureCtrl.js');
-require('./ViewAlbumCtrl.js');
+require('./AlbumsController.js');
+require('./NewAlbumController.js');
+require('./NewPictureController.js');
+require('./ViewAlbumController.js');
 
 //Settings
-require('./AccountCtrl.js');
-
-
-export default appControllers;
+require('./AccountController.js');

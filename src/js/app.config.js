@@ -1,18 +1,21 @@
 
-export default angular
+angular
 .module('starter')
 .config( ($stateProvider, $urlRouterProvider, $httpProvider, $facebookProvider, SERVER_REST, ASSETS_PATH, FB_APP_ID) => {
 
   $facebookProvider.setAppId(FB_APP_ID);
 
 
-  $httpProvider.interceptors.push(($rootScope) => {
+  $httpProvider.interceptors.push(($rootScope,$local) => {
     return {
       request: req => {
         //$rootScope.$broadcast('loading:show');
         if(req.url && req.url.indexOf(SERVER_REST)===0){
           console.log('request intercepted');
-          req.headers['auth-x'] = '1';
+          const token = $local.get('token');
+          if(token){
+              req.headers.authorization = 'Bearer '+token;
+          }
         }
         return req;
       },
@@ -34,19 +37,19 @@ export default angular
   .state('login', {
     url: '/login',
     templateUrl: ASSETS_PATH + '/login/login.html',
-    controller: 'LoginCtrl'
+    controller: 'LoginController as vm'
   })
 
   .state('loginMail', {
     url: '/login/email',
     templateUrl: ASSETS_PATH + '/login/login-email.html',
-    controller: 'LoginEmailCtrl'
+    controller: 'LoginEmailController as vm'
   })
 
   .state('signUp', {
     url: '/signUp',
     templateUrl: ASSETS_PATH + '/login/sign-up.html',
-    controller: 'SignUpCtrl'
+    controller: 'SignUpController as vm'
   })
 
   // Tabs
@@ -65,7 +68,7 @@ export default angular
     views: {
       'tab-albums': {
         templateUrl: ASSETS_PATH + '/albums/tab-albums.html',
-        controller: 'AlbumsCtrl'
+        controller: 'AlbumsController as vm'
       }
     }
   })
@@ -75,7 +78,7 @@ export default angular
     views: {
       'tab-albums': {
         templateUrl: ASSETS_PATH + '/albums/new-album.html',
-        controller: 'NewAlbumCtrl'
+        controller: 'NewAlbumController as vm'
       }
     }
   })
@@ -85,7 +88,7 @@ export default angular
     views: {
       'tab-albums': {
         templateUrl: ASSETS_PATH + '/albums/view-album.html',
-        controller: 'ViewAlbumCtrl'
+        controller: 'ViewAlbumController as vm'
       }
     }
   })
@@ -95,7 +98,7 @@ export default angular
     views: {
       'tab-albums': {
         templateUrl: ASSETS_PATH + '/albums/new-picture.html',
-        controller: 'NewPictureCtrl'
+        controller: 'NewPictureController as vm'
       }
     }
   })
@@ -106,7 +109,7 @@ export default angular
     views: {
       'tab-account': {
         templateUrl: ASSETS_PATH + '/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'AccountController as vm'
       }
     }
   });

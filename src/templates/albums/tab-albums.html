@@ -4,7 +4,7 @@
     <ion-list>
 
       <!-- Albums List -->
-      <ion-item ng-repeat="album in myAlbums"
+      <ion-item ng-repeat="album in vm.myAlbums"
           on-hold="albumActions({{album}})"
           class="item-stable item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-href="#/tab/albums/{{album._id}}">
 
